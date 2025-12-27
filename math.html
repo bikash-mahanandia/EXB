@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mathematics – Fibonacci Applications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ============ RESET ============ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', Arial, sans-serif;
+}
+
+/* ============ COLOR THEME ============ */
+:root{
+    --dark:#060913;
+    --purple:#a855f7;
+    --pink:#ec4899;
+    --gold:#f5c46b;
+    --text:#f1f5f9;
+}
+
+/* ============ BODY ============ */
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#020617,#060913,#020617);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ============ ANIMATED BACKGROUND ============ */
+.bg-math{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(168,85,247,0.25), transparent 45%),
+      radial-gradient(circle at 70% 70%, rgba(236,72,153,0.25), transparent 45%);
+    animation: hueMove 20s ease-in-out infinite alternate;
+    z-index:-1;
+}
+
+@keyframes hueMove{
+    from{filter:hue-rotate(0deg);}
+    to{filter:hue-rotate(25deg);}
+}
+
+/* ============ HEADER ============ */
+header{
+    text-align:center;
+    padding:60px 20px 40px;
+    animation: slideDown 1.2s ease;
+}
+
+header h1{
+    font-size:2.8rem;
+    background: linear-gradient(90deg,var(--gold),var(--pink));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:12px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+@keyframes slideDown{
+    from{opacity:0; transform:translateY(-35px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============ CONTENT ============ */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background: rgba(255,255,255,0.06);
+    border-radius:20px;
+    overflow:hidden;
+    backdrop-filter: blur(12px);
+    box-shadow:0 20px 45px rgba(0,0,0,0.55);
+    animation: fadeUp 1.3s ease;
+    transition: transform 0.4s ease;
+}
+
+.card:hover{
+    transform: translateY(-12px) scale(1.04);
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    color:var(--gold);
+    margin-bottom:12px;
+    font-size:1.25rem;
+}
+
+.card-content p{
+    font-size:1rem;
+    line-height:1.65;
+    opacity:0.95;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(45px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============ FOOTER ============ */
+footer{
+    text-align:center;
+    padding:45px 20px;
+    font-size:0.9rem;
+    opacity:0.65;
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:768px){
+    header h1{font-size:2.1rem;}
+    header p{font-size:1rem;}
+    .card img{height:200px;}
+}
+
+@media(max-width:480px){
+    header h1{font-size:1.8rem;}
+    .card img{height:180px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-math"></div>
+
+<header>
+    <h1>Mathematics</h1>
+    <p>Fibonacci as the Foundation of Mathematical Patterns</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <!-- Pascal Triangle -->
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif" alt="Pascal Triangle">
+            <div class="card-content">
+                <h3>Pascal’s Triangle</h3>
+                <p>
+                    Fibonacci numbers appear along the shallow diagonals of
+                    Pascal’s Triangle, revealing hidden additive patterns
+                    in combinatorics.
+                </p>
+            </div>
+        </div>
+
+        <!-- Algebra -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb" alt="Algebra">
+            <div class="card-content">
+                <h3>Algebra & Coefficients</h3>
+                <p>
+                    Fibonacci numbers arise in algebraic identities, polynomial
+                    expansions, and recursive formulas used to compute coefficients.
+                </p>
+            </div>
+        </div>
+
+        <!-- Number Theory -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1509223197845-458d87318791" alt="Number Theory">
+            <div class="card-content">
+                <h3>Number Theory</h3>
+                <p>
+                    Fibonacci sequences are studied for divisibility properties,
+                    prime relationships, and modular arithmetic patterns.
+                </p>
+            </div>
+        </div>
+
+        <!-- Golden Ratio -->
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Golden_ratio_construction.svg" alt="Golden Ratio">
+            <div class="card-content">
+                <h3>Golden Ratio</h3>
+                <p>
+                    The ratio of consecutive Fibonacci numbers converges to the
+                    Golden Ratio, a key constant in geometry and mathematical analysis.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    Fibonacci Series in Mathematics • Exhibition Project
+</footer>
+
+</body>
+</html>
