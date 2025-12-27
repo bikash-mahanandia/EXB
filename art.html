@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Art & Architecture – Fibonacci Applications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ============ RESET ============ */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', Arial, sans-serif;
+}
+
+/* ============ COLOR THEME ============ */
+:root{
+    --dark:#120b08;
+    --brown:#8b5e3c;
+    --gold:#f5c46b;
+    --text:#f1f5f9;
+}
+
+/* ============ BODY ============ */
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#0d0704,#120b08,#0d0704);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ============ ANIMATED BACKGROUND ============ */
+.bg-art{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(245,196,107,0.25), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(139,94,60,0.3), transparent 40%);
+    animation: bgShift 20s ease-in-out infinite alternate;
+    z-index:-1;
+}
+
+@keyframes bgShift{
+    from{filter:hue-rotate(0deg);}
+    to{filter:hue-rotate(-15deg);}
+}
+
+/* ============ HEADER ============ */
+header{
+    text-align:center;
+    padding:60px 20px 40px;
+    animation: slideDown 1.2s ease;
+}
+
+header h1{
+    font-size:2.8rem;
+    background: linear-gradient(90deg,var(--gold),var(--brown));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:12px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+@keyframes slideDown{
+    from{opacity:0; transform:translateY(-35px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============ CONTENT ============ */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background: rgba(255,255,255,0.06);
+    border-radius:20px;
+    overflow:hidden;
+    backdrop-filter: blur(12px);
+    box-shadow:0 20px 45px rgba(0,0,0,0.55);
+    animation: fadeUp 1.3s ease;
+    transition: transform 0.4s ease;
+}
+
+.card:hover{
+    transform: translateY(-12px) scale(1.04);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:22px;
+}
+
+.card-content h3{
+    color:var(--gold);
+    margin-bottom:12px;
+    font-size:1.25rem;
+}
+
+.card-content p{
+    font-size:1rem;
+    line-height:1.65;
+    opacity:0.95;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(45px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============ FOOTER ============ */
+footer{
+    text-align:center;
+    padding:45px 20px;
+    font-size:0.9rem;
+    opacity:0.65;
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:768px){
+    header h1{font-size:2.1rem;}
+    header p{font-size:1rem;}
+    .card img{height:200px;}
+}
+
+@media(max-width:480px){
+    header h1{font-size:1.8rem;}
+    .card img{height:180px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-art"></div>
+
+<header>
+    <h1>Art & Architecture</h1>
+    <p>Fibonacci and Golden Ratio in Human Creativity</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <!-- Taj Mahal -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1548013146-72479768bada" alt="Taj Mahal Golden Ratio">
+            <div class="card-content">
+                <h3>Taj Mahal</h3>
+                <p>
+                    The Taj Mahal follows Golden Ratio proportions in its dome,
+                    minarets, and overall symmetry, creating timeless architectural harmony.
+                </p>
+            </div>
+        </div>
+
+        <!-- Great Pyramid of Giza -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750" alt="Great Pyramid of Giza">
+            <div class="card-content">
+                <h3>Great Pyramid of Giza</h3>
+                <p>
+                    The height-to-base ratio of the Great Pyramid closely aligns with
+                    the Golden Ratio, reflecting advanced ancient mathematical knowledge.
+                </p>
+            </div>
+        </div>
+
+        <!-- Konark Sun Temple (CORRECT IMAGE) -->
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Konarka_Temple.jpg" alt="Konark Sun Temple">
+            <div class="card-content">
+                <h3>Konark Sun Temple</h3>
+                <p>
+                    The Konark Sun Temple’s chariot wheels and stone carvings exhibit
+                    Fibonacci-based proportions, symbolizing cosmic rhythm and balance.
+                </p>
+            </div>
+        </div>
+
+        <!-- Mona Lisa (PAINTING IMAGE) -->
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Mona_Lisa.jpg" alt="Mona Lisa Painting">
+            <div class="card-content">
+                <h3>Mona Lisa</h3>
+                <p>
+                    Leonardo da Vinci used the Golden Ratio in the composition of the
+                    Mona Lisa, guiding visual balance and natural focal flow.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    Fibonacci Series in Art & Architecture • Exhibition Project
+</footer>
+
+</body>
+</html>
