@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nature & Biology – Fibonacci Applications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ============== RESET ============== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', Arial, sans-serif;
+}
+
+/* ============== COLOR THEME ============== */
+:root{
+    --dark:#0b1d14;
+    --green:#4caf50;
+    --gold:#f5c46b;
+    --text:#f1f5f9;
+}
+
+/* ============== BODY ============== */
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg,#07160f,#0b1d14,#07160f);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+/* ============== BACKGROUND ANIMATION ============== */
+.bg-leaf{
+    position:fixed;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(76,175,80,0.25), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(245,196,107,0.25), transparent 40%);
+    animation: bgMove 18s linear infinite alternate;
+    z-index:-1;
+}
+
+@keyframes bgMove{
+    from{filter:hue-rotate(0deg);}
+    to{filter:hue-rotate(20deg);}
+}
+
+/* ============== HEADER ============== */
+header{
+    text-align:center;
+    padding:60px 20px 40px;
+    animation: fadeDown 1.2s ease;
+}
+
+header h1{
+    font-size:2.8rem;
+    background: linear-gradient(90deg,var(--gold),var(--green));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+header p{
+    margin-top:12px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============== CONTENT ============== */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    background: rgba(255,255,255,0.05);
+    border-radius:18px;
+    overflow:hidden;
+    backdrop-filter: blur(10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+    animation: fadeUp 1.2s ease;
+    transition: transform 0.4s ease;
+}
+
+.card:hover{
+    transform: translateY(-10px) scale(1.03);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.card-content p{
+    font-size:1rem;
+    line-height:1.6;
+    opacity:0.95;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ============== FOOTER ============== */
+footer{
+    text-align:center;
+    padding:40px 20px;
+    font-size:0.9rem;
+    opacity:0.6;
+}
+
+/* ============== RESPONSIVE ============== */
+@media(max-width:768px){
+    header h1{font-size:2.1rem;}
+    header p{font-size:1rem;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-leaf"></div>
+
+<header>
+    <h1>Nature & Biology</h1>
+    <p>Fibonacci Patterns in the Living World</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <!-- Sunflower -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6" alt="Sunflower Fibonacci">
+            <div class="card-content">
+                <h3>Sunflower Seed Arrangement</h3>
+                <p>
+                    Sunflower seeds grow in spirals that follow Fibonacci numbers,
+                    allowing maximum packing efficiency and optimal exposure to sunlight.
+                </p>
+            </div>
+        </div>
+
+        <!-- Pine Cone -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1602526432604-029a709e131c" alt="Pine Cone Fibonacci">
+            <div class="card-content">
+                <h3>Pine Cone Spirals</h3>
+                <p>
+                    Pine cones exhibit clockwise and counter-clockwise spirals,
+                    often matching consecutive Fibonacci numbers like 8 and 13.
+                </p>
+            </div>
+        </div>
+
+        <!-- Leaves -->
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="Leaf Arrangement">
+            <div class="card-content">
+                <h3>Leaf Arrangement (Phyllotaxis)</h3>
+                <p>
+                    Leaves grow at Fibonacci angles to minimize overlap,
+                    ensuring each leaf receives maximum sunlight for photosynthesis.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    Fibonacci Series in Nature • Exhibition Project
+</footer>
+
+</body>
+</html>
