@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Virahanka–Fibonacci Series</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+/* ================= COLOR PALETTE ================= */
+:root{
+    --bg-dark:#0b0f14;
+    --gold:#f5c46b;
+    --teal:#4fd1c5;
+    --text-light:#f1f5f9;
+}
+
+/* ================= BODY ================= */
+body{
+    min-height:100vh;
+    background: linear-gradient(120deg, #05070a, #0b0f14, #05070a);
+    color:var(--text-light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+/* Floating Orbs */
+.orb{
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    filter: blur(80px);
+    opacity:0.5;
+    animation: float 18s infinite alternate ease-in-out;
+}
+
+.orb.gold{
+    background: var(--gold);
+    top:10%;
+    left:5%;
+}
+
+.orb.teal{
+    background: var(--teal);
+    bottom:10%;
+    right:10%;
+    animation-duration:22s;
+}
+
+.orb.small{
+    width:180px;
+    height:180px;
+    top:60%;
+    left:25%;
+    animation-duration:15s;
+}
+
+@keyframes float{
+    0%{ transform: translate(0,0); }
+    100%{ transform: translate(60px,-80px); }
+}
+
+/* ================= MAIN CARD ================= */
+.container{
+    width:90%;
+    max-width:950px;
+    padding:50px;
+    text-align:center;
+    background: rgba(15,18,25,0.55);
+    border-radius:20px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ================= TITLE ================= */
+h1{
+    font-size:3rem;
+    letter-spacing:2px;
+    background: linear-gradient(90deg, var(--gold), var(--teal));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+    margin-top:12px;
+    font-size:1.2rem;
+    opacity:0.9;
+}
+
+/* ================= APPLICATIONS ================= */
+.section-title{
+    margin:45px 0 25px;
+    font-size:1.6rem;
+    color:var(--gold);
+    letter-spacing:1px;
+}
+
+.apps{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:22px;
+}
+
+/* Buttons */
+.app-btn{
+    position:relative;
+    padding:18px;
+    font-size:1.1rem;
+    color:var(--text-light);
+    background: rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:12px;
+    cursor:pointer;
+    overflow:hidden;
+    transition: all 0.4s ease;
+}
+
+/* Glow hover */
+.app-btn::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 70%);
+    opacity:0;
+    transition:0.4s;
+}
+
+.app-btn:hover::after{
+    opacity:1;
+}
+
+.app-btn:hover{
+    transform:translateY(-6px) scale(1.04);
+    border-color:var(--gold);
+    box-shadow: 0 15px 35px rgba(245,196,107,0.35);
+}
+
+/* ================= CONCLUSION ================= */
+.conclusion{
+    margin-top:45px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,0.15);
+    font-size:1.1rem;
+    line-height:1.7;
+    opacity:0.95;
+}
+
+/* ================= FOOTER ================= */
+.footer{
+    margin-top:25px;
+    font-size:0.85rem;
+    opacity:0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width:1024px){
+    .container{
+        padding:40px;
+    }
+    h1{ font-size:2.5rem; }
+    .orb{ width:240px; height:240px; }
+}
+
+/* Mobile */
+@media (max-width:768px){
+    body{
+        align-items:flex-start;
+        overflow-y:auto;
+    }
+
+    .container{
+        margin:40px 0;
+        padding:30px 20px;
+    }
+
+    h1{ font-size:2rem; }
+    .subtitle{ font-size:1rem; }
+
+    .apps{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .app-btn{
+        font-size:1rem;
+        padding:16px;
+    }
+
+    .conclusion{
+        font-size:1rem;
+    }
+
+    .orb{
+        width:180px;
+        height:180px;
+        filter: blur(60px);
+        opacity:0.4;
+    }
+}
+
+/* Small phones */
+@media (max-width:480px){
+    h1{ font-size:1.7rem; }
+    .container{ padding:25px 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Animated Background -->
+<div class="background">
+    <div class="orb gold"></div>
+    <div class="orb teal"></div>
+    <div class="orb gold small"></div>
+</div>
+
+<!-- Content -->
+<div class="container">
+    <h1>Virahanka–Fibonacci Series</h1>
+    <p class="subtitle">Where Mathematics Meets Nature, Art & Finance</p>
+
+    <h2 class="section-title">Applications</h2>
+
+    <div class="apps">
+        <button class="app-btn"onclick="nature()">Nature & Biology</button>
+        <button class="app-btn"onclick="art()">Art & Architecture</button>
+        <button class="app-btn"onclick="music()">Music</button>
+        <button class="app-btn"onclick="computer()">Computer Science</button>
+        <button class="app-btn"onclick="math()">Mathematics</button>
+        <button class="app-btn"onclick="finance()">Finance</button>
+    </div>
+
+    <div class="conclusion">
+        The Fibonacci sequence and the Golden Ratio reveal a hidden mathematical
+        harmony present across natural forms, artistic creations, computational
+        logic, and financial markets—demonstrating how numbers shape the universe.
+    </div>
+
+    <div class="footer">
+        Interactive Exhibition • Live Web Experience
+    </div>
+</div>
+
+<script>
+
+    function nature() {
+  window.location.href = "nature.html";
+ 
+}
+    function art() {
+  window.location.href = "art.html";
+ 
+}
+    function music() {
+  window.location.href = "music.html";
+ 
+}
+    function finance() {
+  window.location.href = "finance.html";
+ 
+}
+    function computer() {
+  window.location.href = "computer.html";
+ 
+}
+    function math() {
+  window.location.href = "math.html";
+ 
+}
+
+/* Mouse animation disabled on touch devices */
+if (!('ontouchstart' in window)) {
+    document.addEventListener('mousemove', e => {
+        document.querySelectorAll('.orb').forEach((orb, i) => {
+            const speed = (i + 1) * 0.015;
+            orb.style.transform =
+                `translate(${e.clientX * speed}px, ${e.clientY * speed}px)`;
+        });
+    });
+}
+</script>
+
+</body>
+</html>
